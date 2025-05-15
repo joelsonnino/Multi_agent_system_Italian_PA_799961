@@ -55,6 +55,7 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
         - Chart Generation: Emits clean, comment-free Python code that builds exactly the requested chart type (bar, line, pie, etc.) with titles & labels.
    
 <br /><br />
+
 ### Section 3: Implementation Plan
 ## 3.1: Choice of the LLM
 - We Evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
@@ -71,7 +72,8 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
 - Created and interactive streamlit interface for an optimal user experience.
 
 <br /><br />
-### Section 4: Reproducibility Guidelines
+
+## Section 4: Reproducibility Guidelines
 - To ensure the reproducibility of our multi-agent system, we have made the entire setup process transparent and modular.
 - Follow the steps below to replicate the system in your local environment.
 
