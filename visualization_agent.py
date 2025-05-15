@@ -10,6 +10,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
+
 template = """
 CONTEXT:
 You are an Senior Data scientist, expert in data processing and visualization with Python. 
@@ -171,7 +172,7 @@ prompt = PromptTemplate(
 
 llm = Ollama(model="llama3.2:latest", base_url="http://localhost:11434", timeout=120_000)
 
-
+#generate_visualization function
 def generate_visualization(query: str, relevant_filenames: list, relevant_structures: dict, memory):
     """
     Generates Python visualization code, including loading/merging of specified relevant datasets.

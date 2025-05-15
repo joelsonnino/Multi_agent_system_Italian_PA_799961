@@ -12,6 +12,7 @@ import pandas as pd # Aggiungi pandas qui se non c'è già globalmente per il pr
 
 logger = logging.getLogger(__name__)
 
+# Define the template for the analysis agent
 template = """
 [ROLE]
 You are an Senior Data scientist, expert in data processing and analysis with Python. You are working in a multi agent system based data of Italian Public administration.
@@ -186,7 +187,7 @@ prompt = PromptTemplate(
 
 llm = Ollama(model="llama3.2:latest", base_url="http://localhost:11434", timeout=120_000)
 
-
+# Generate Python code for data analysis
 def generate_analysis(query: str, relevant_filenames: list, relevant_structures: dict, memory):
     """
     Generates Python analysis code, including loading/merging of specified relevant datasets.

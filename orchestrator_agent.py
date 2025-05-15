@@ -48,6 +48,7 @@ TASK:
 
 Selected Dataset Filenames (comma-separated, or NONE):
 """
+# Create the dataset selector prompt template
 dataset_selector_prompt = PromptTemplate(
     input_variables=["chat_history", "available_datasets_summary", "query"],
     template=dataset_selector_template
@@ -89,6 +90,7 @@ router_prompt = PromptTemplate(
     template=router_template
 )
 
+# --- 3. Helper Functions ---
 def create_available_datasets_summary(all_dataset_structures: dict) -> str:
     """Creates a string summary of available datasets and their columns."""
     summary_lines = []
@@ -99,6 +101,7 @@ def create_available_datasets_summary(all_dataset_structures: dict) -> str:
         summary_lines.append(f"- {fname}: ({col_str})")
     return "\n".join(summary_lines)
 
+# --- 4. Orchestrator Function ---
 def orchestrate(query: str, all_dataset_structures: dict, memory):
     """
     Selects relevant dataset(s), then routes the query to the appropriate agent.

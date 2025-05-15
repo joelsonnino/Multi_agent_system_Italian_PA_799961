@@ -116,7 +116,7 @@ def load_all_structures(dataset_files: list):
             structure[fname] = None
     return structure
 
-
+# --- Function to Clean Code Snippet ---
 def clean_code_snippet(code_input: str) -> str:
     if not isinstance(code_input, str):
         return ""
@@ -157,7 +157,7 @@ def init_state():
             st.session_state[k] = v
 
 init_state()
-
+# Check if conversation memory is initialized
 if 'conversation_memory' not in st.session_state:
     st.session_state.conversation_memory = ConversationBufferWindowMemory(
         k=5, memory_key="chat_history", input_key="query", return_messages=False,
@@ -431,7 +431,6 @@ if st.session_state.last_query:
                 except Exception as e:
                     st.warning(f"Could not generate download for plot: {e}")
             current_tab_idx += 1
-
         if "📄 DataFrame" in tab_titles:
             with tabs[current_tab_idx]:
                 st.subheader(f"DataFrame Output ({st.session_state.agent_type or 'Table'})")
