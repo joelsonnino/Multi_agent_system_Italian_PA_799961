@@ -35,6 +35,8 @@ The system’s architecture begins with a Streamlit interface that captures the 
 
 ![System Architecture](System%20architecture.png)
 
+This request is passed to the Orchestrator Agent, which selects the relevant dataset(s) and routes the task to either the Analysis Agent or the Visualization Agent. Here are the details:
+
 1. **Orchestrator Agent**
    - **Role:** Interfaces with the user, parses natural-language requests, identifies relevant datasets, and route tasks to the right agent.
    - **Implementation:** Built using LangChain with custom prompt templates. Uses Ollama for local LLM inference to maintain data privacy.
