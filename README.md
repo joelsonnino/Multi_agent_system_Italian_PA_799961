@@ -114,17 +114,6 @@ pip install -r requirements.txt
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## Section 3: Experimental Design
 We conducted two core experiments to validate the functionality and performance of our system.
 
@@ -167,20 +156,23 @@ We conducted two core experiments to validate the functionality and performance 
 
 ---
 
-## Section 5: Conclusions
+## Section 6: Security & Cost Advantages
 
-### 5.1 Key Takeaways
-The NoiPa Multi-Agent System successfully demonstrates that:
-- **Modular Agent Design** dramatically reduces development time for complex data workflows.
-- **Local LLM Hosting** ensures data privacy and cost-effectiveness without sacrificing performance.
-- **Automated Visualization** pipelines can achieve high levels of correctness and user satisfaction comparable to manual efforts.
+- **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
+- **Predictable TCO**: One‐time hardware investment versus variable cloud expenses. There are no surprise bills or usage-based increases.
+- **Reduced Attack Surface**: All informations remain within your secure network, no third-party sharing. Eliminates risk of data-leaks or non-compliant data transfers.
+- **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction,ensuring GDPR regulations are met.
 
-### 5.2 Limitations and Future Work
-- **Scalability:** Current in-memory data handling may not scale to datasets >1M rows. Future work: integrate database backends (e.g., DuckDB, PostgreSQL).
-- **LLM Versatility:** Local open-source models may struggle with nuanced queries. Future work: implement hybrid routing—use cloud APIs (e.g., GPT-4) for edge cases.
-- **Interactive Features:** Enhance Streamlit UI with dynamic filters, multi-select controls, and drill-down charts for deeper exploration.
 
----
+## Section 7: LIMITATION AND FUTURE STEP
+- **Infrastructure Overhead**: Locally hosted LLM agents requires significant computational resources. Limited scalability on non-specialized hardware.
+- **Performance Trade-Offs**: While local models like LLaMA and Mistral ensure control and privacy, they may underperform compared to cloud-based APIs (e.g., GPT-4) on complex tasks.
+- **Hybrid Model Integration**: Implement smart routing that leverages local models for standard tasks and uses GPT-4 API selectively for complex queries.
+
+## Section 8: Conclusions
+
+
+
 
 ## Repository Structure
 ```
