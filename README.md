@@ -100,7 +100,7 @@ pip install -r requirements.txt
 ```
 
 ### 3. Model Installation
-- We use a locally hosted LLM: llama3 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
+- We use a locally hosted LLM: llama3.2 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
 
 ```bash
 ollama pull llama3.2
@@ -110,7 +110,7 @@ ollama pull llama3.2
 - Run the Streamlit interface to interact with the multi-agent system:
 
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
