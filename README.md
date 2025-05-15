@@ -101,7 +101,7 @@ pip install -r requirements.txt
 
 ### 3. Model Installation
 - We use a locally hosted LLM: llama3 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
-- 
+
 ```bash
 ollama pull llama3.2
 ```
