@@ -17,7 +17,7 @@ This project demonstrates how autonomous agents can automate end-to-end data wor
 3. **Interactive Exploration:** Provide a user-friendly interface to explore insights without writing code.
 
 ---
-
+<br /><br />
 ## Section 2: 
 ## 2.1 Data cleaning and processing
 
@@ -54,7 +54,7 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
         - Apply any necessary data transformations, merging only when requested, grouping, aggregations, and special-case logic
         - Chart Generation: Emits clean, comment-free Python code that builds exactly the requested chart type (bar, line, pie, etc.) with titles & labels.
    
-
+<br /><br />
 ### Section 3: Implementation Plan
 ## 3.1: Choice of the LLM
 - We Evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
@@ -70,7 +70,7 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
 ## 3.4 Streamlit Interface
 - Created and interactive streamlit interface for an optimal user experience.
 
-
+<br /><br />
 ### Section 4: Reproducibility Guidelines
 - To ensure the reproducibility of our multi-agent system, we have made the entire setup process transparent and modular.
 - Follow the steps below to replicate the system in your local environment.
@@ -115,7 +115,7 @@ streamlit run streamlit_app.py
 
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
 
-
+<br /><br />
 ### Section 5: Evalutation
 - **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
@@ -124,7 +124,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 - **Evaluation Metrics:**
   - **Accuracy (%)** = (Correct answers / Total answers) × 100
-
+<br /><br />
 ## Section 6: Results
 ## Quantitative Findings
 | Agent                   | Metric                | Score          |
@@ -133,7 +133,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 | **Visualization Agent** | Accuracy  (%)         | 83 %           |
 
 
-
+<br /><br />
 ### Section 7: Security & Cost Advantages
 
 - **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
@@ -141,12 +141,12 @@ This will start a local server at `http://localhost:8501`, where you can interac
 - **Reduced Attack Surface**: All informations remain within the secure network, no third-party sharing. Eliminating the risk of data-leaks or non-compliant data transfers.
 - **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction, ensuring GDPR regulations are met.
 
-
+<br /><br />
 ### Section 8: LIMITATION AND FUTURE STEP
 - **Infrastructure Overhead**: Locally hosted LLM agents requires significant computational resources. Limited scalability on non-specialized hardware.
 - **Performance Trade-Offs**: While local models like LLaMA and Mistral ensure control and privacy, they may underperform compared to cloud-based APIs (e.g., GPT-4) on complex tasks.
 - **Hybrid Model Integration**: Implement smart routing that leverages local models for standard tasks and uses GPT-4 API selectively for complex queries.
-
+<br /><br />
 ### Section 9: Conclusions
 
 The adoption of multi-agent systems like the one we have presented is fundamental for modernizing Italian Public Administrations. Thanks to a modular architecture that integrates orchestration, analysis, and visualization, PAs will be able to:
