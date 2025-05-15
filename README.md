@@ -18,9 +18,9 @@ This project demonstrates how autonomous agents can automate end-to-end data wor
 
 ---
 
-### Section 2: Methods
+## Section 2: Methods
 
-## 2.1 Data cleaning and processing
+# 2.1 Data cleaning and processing
 
 - **Normalizes Schema**: Translated all column headers into English, creating a consistent naming convention for LLM parsing.
 
@@ -31,12 +31,12 @@ This project demonstrates how autonomous agents can automate end-to-end data wor
 - **Standardizes Categories**: Converted uppercase category labels to lowercase for uniformity and downstream matching.
 
 
-## 2.2: Brainstorming
+# 2.2: Brainstorming
 In the initial phase we had a deep brainstorming session where we thought about different design patterns, communication flows, and integration strategies between agents. 
 We carefully analyzed the roles and responsibilities that each agent should take on, and we decided to structure the system as follows:
 
 
-## 2.3: System Structure
+# 2.3: System Structure
 The architecture comprises three specialized agents:
 
 1. **Orchestrator Agent**
