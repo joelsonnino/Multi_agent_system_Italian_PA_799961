@@ -12,7 +12,7 @@ Leveraging a tri-agent architecture: **Orchestrator**, **Analysis**, and **Visua
 This project demonstrates how autonomous agents can automate end-to-end data workflows: from interpreting user queries, through data transformation and analysis, to dynamic presentation in a Streamlit interface.
 
 **Key Objectives:**
-1. **Data Analysis & Visualization:** End-to-end processing of raw NoiPa CSVs, including cleaning, filtering, joining, and aggregating data to receive insights
+1. **Data Analysis & Visualization:** Ability to process, analyze and visualize data of the portal NoiPa CSVs to receive insights.
 2. **Transparency & Compliance:** Keep all data locally with no third-party sharing, ensuring GDPR compliance.
 3. **Interactive Exploration:** Provide a user-friendly interface to explore insights without writing code.
 
