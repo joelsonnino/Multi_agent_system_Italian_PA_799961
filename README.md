@@ -142,8 +142,10 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 ### Section 9: Conclusions
 
+The adoption of multi-agent systems like the one we have presented is fundamental for modernizing Italian Public Administrations. Thanks to a modular architecture that integrates orchestration, analysis, and visualization, PAs will be able to:
 
+- **Respond more quickly** to citizens’ requests by automating the entire workflow—from natural-language input to the generation of charts and reports.  
+- **Ensure maximum transparency** and GDPR compliance by keeping all data and models on-premises, without sharing anything with third-party services.  
+- **Scale sustainably** by leveraging dedicated hardware infrastructure and drastically reducing the variable costs associated with external APIs.  
 
-
-
-*Thank you for reviewing our detailed report on the NoiPa Multi-Agent System!*
+We hope this project is only the first of many: our expertise in integrating local LLMs and data-analysis tools is ready to support new digital challenges within both central and local administrations.
