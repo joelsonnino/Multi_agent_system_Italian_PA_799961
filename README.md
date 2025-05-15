@@ -116,8 +116,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 - **Evaluation Metrics:**
   - **Accuracy (%)** = (Correct answers / Total answers) × 100
 
-### Section 6: Results
-
+## Section 6: Results
 ## Quantitative Findings
 | Agent                   | Metric                | Score          |
 |-------------------------|-----------------------|----------------|
