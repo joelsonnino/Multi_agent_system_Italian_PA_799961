@@ -7,5 +7,5 @@ langchain_
 seaborn
 langchain_experimental
 ollama
-
-
+numpy
+matplotlib.pyplot
