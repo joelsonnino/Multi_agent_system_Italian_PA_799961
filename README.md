@@ -56,7 +56,8 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
    
 <br /><br />
 
-### Section 3: Implementation Plan
+## Section 3: Implementation Plan
+
 ## 3.1: Choice of the LLM
 - We Evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
 - We found that llama 3.2 was the best performer, by testing the three different models on a list of 10 basic queries, to understand which models was performing better.
@@ -118,6 +119,7 @@ streamlit run streamlit_app.py
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
 
 <br /><br />
+
 ### Section 5: Evalutation
 - **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
@@ -126,6 +128,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 - **Evaluation Metrics:**
   - **Accuracy (%)** = (Correct answers / Total answers) × 100
+  - 
 <br /><br />
 ## Section 6: Results
 ## Quantitative Findings
@@ -136,6 +139,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 
 <br /><br />
+
 ### Section 7: Security & Cost Advantages
 
 - **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
@@ -144,12 +148,14 @@ This will start a local server at `http://localhost:8501`, where you can interac
 - **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction, ensuring GDPR regulations are met.
 
 <br /><br />
-### Section 8: LIMITATION AND FUTURE STEP
+
+## Section 8: LIMITATION AND FUTURE STEP
 - **Infrastructure Overhead**: Locally hosted LLM agents requires significant computational resources. Limited scalability on non-specialized hardware.
 - **Performance Trade-Offs**: While local models like LLaMA and Mistral ensure control and privacy, they may underperform compared to cloud-based APIs (e.g., GPT-4) on complex tasks.
 - **Hybrid Model Integration**: Implement smart routing that leverages local models for standard tasks and uses GPT-4 API selectively for complex queries.
 <br /><br />
-### Section 9: Conclusions
+
+## Section 9: Conclusions
 
 The adoption of multi-agent systems like the one we have presented is fundamental for modernizing Italian Public Administrations. Thanks to a modular architecture that integrates orchestration, analysis, and visualization, PAs will be able to:
 
