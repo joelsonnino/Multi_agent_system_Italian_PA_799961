@@ -90,7 +90,7 @@ cd Multi_agent_system_Italian_PA_799961
 Create a virtual environment and install the required dependencies.
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
