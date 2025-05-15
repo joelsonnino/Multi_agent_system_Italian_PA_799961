@@ -120,7 +120,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 <br /><br />
 
-### Section 5: Evalutation
+## Section 5: Evalutation
 - **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
      - A curated list of 21 questions for the **Analysis Agent**, designed to test dataset joins, filters, and aggregations across multiple CSV files.
@@ -140,7 +140,7 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 <br /><br />
 
-### Section 7: Security & Cost Advantages
+## Section 7: Security & Cost Advantages
 
 - **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
 - **Predictable TCO**: One‐time hardware investment versus variable cloud expenses. There are no surprise bills or usage-based increases.
