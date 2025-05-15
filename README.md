@@ -1,6 +1,4 @@
-# Multi_agent_system_Italian_PA_799961
-
-# NoiPa Multi-Agent System
+# Multi_agent_system_Italian_PA
 
 **Team Members:**
 - **Joel Sonnino** (joel.sonnino@studenti.luiss.it)
@@ -9,42 +7,78 @@
 ---
 
 ## Section 1: Introduction
-The **NoiPa Multi-Agent System** is a comprehensive, modular framework designed to facilitate interactive querying, analysis, and visualization of payroll data from the Italian public administration portal (NoiPa). Leveraging a tri-agent architecture—**Orchestrator**, **Analysis**, and **Visualization**—the system ensures data privacy by hosting all Large Language Models (LLMs) locally via Ollama and maintains full auditability. This project demonstrates how autonomous agents can automate end-to-end data workflows: from interpreting user queries, through data transformation and analysis, to dynamic presentation in a Streamlit interface.
+To meet the growing demand for faster & transparent public services while managing increasing volumes of data, we developed a local multi-agent system designed to address user's query about analysis & and visualization on data from the Italian public administration portal (NoiPa). 
+Leveraging a tri-agent architecture—**Orchestrator**, **Analysis**, and **Visualization**—the system ensures data privacy by hosting all the system locally via Ollama.
+This project demonstrates how autonomous agents can automate end-to-end data workflows: from interpreting user queries, through data transformation and analysis, to dynamic presentation in a Streamlit interface.
 
 **Key Objectives:**
-1. **Data Automation:** End-to-end processing of raw NoiPa CSVs, including cleaning, filtering, joining, and aggregating payroll records.
-2. **Transparency & Compliance:** Keep all data and inference on-premises, ensuring GDPR compliance and enabling reproducible audit trails.
-3. **Interactive Exploration:** Provide a user-friendly dashboard for stakeholders to explore insights without writing code.
+1. **Data Analysis & Visualization:** End-to-end processing of raw NoiPa CSVs, including cleaning, filtering, joining, and aggregating data to receive insights
+2. **Transparency & Compliance:** Keep all data locally with no third-party sharing, ensuring GDPR compliance.
+3. **Interactive Exploration:** Provide a user-friendly interface to explore insights without writing code.
 
 ---
 
 ## Section 2: Methods
 
-### 2.1 System Architecture
-A high-level flowchart is provided in `images/architecture_flowchart.png`. The architecture comprises three specialized agents:
+### 2.1 Data cleaning and processing
+
+- **Normalizes Schema**: Translated all column headers into English, creating a consistent naming convention for LLM parsing.
+
+- **Validates & Casts Types**: Checked numeric fields, corrected malformed entries, and enforced proper data types.
+
+- **Generates Features**: Created group features such as: age groups: 18-24, 25-34 e.g or income bracket ranges
+
+- **Standardizes Categories**: Converted uppercase category labels to lowercase for uniformity and downstream matching.
+
+
+### 2.2: Brainstorming
+In the initial phase we had a deep brainstorming session where we thought about different design patterns, communication flows, and integration strategies between agents. 
+We carefully analyzed the roles and responsibilities that each agent should take on, and we decided to structure the system as follows:
+
+
+## 2.3: System Structure
+The architecture comprises three specialized agents:
 
 1. **Orchestrator Agent**
-   - **Role:** Interfaces with the user, parses natural-language requests, identifies relevant datasets, and delegates tasks to downstream agents.
+   - **Role:** Interfaces with the user, parses natural-language requests, identifies relevant datasets, and route tasks to the right agent.
    - **Implementation:** Built using LangChain with custom prompt templates. Uses Ollama for local LLM inference to maintain data privacy.
    - **Responsibilities:** Dataset selection, query routing, context management.
 
 2. **Analysis Agent**
-   - **Role:** Generates and executes Python code to transform the data as requested (e.g., joins on keys like `Matricola`, filters by year or department, aggregations such as sum of salaries).
-   - **Implementation:** A local LLM (Ollama) produces pandas/numpy scripts. Scripts run in a sandboxed environment to prevent unauthorized file operations.
-   - **Responsibilities:** Data cleaning (handling missing values, type conversions), complex aggregations, error handling.
+   - **Role:**
+        - Receive a natural-language query along with a list of relevant CSV filenames and their schemas.
+        - Apply any necessary data transformations—merging only when requested, grouping, aggregations, and special-case logic
+        - Generate clean, executable Python code with no comments or narrative, ensuring syntax correctness and using only the approved libraries and column names.
 
 3. **Visualization Agent**
-   - **Role:** Produces plotting code (matplotlib) to visualize analysis results.
-   - **Implementation:** Uses LLM prompt engineering to generate reusable plotting functions. Integrated into Streamlit via an isolated execution context.
-   - **Responsibilities:** Chart selection (bar, line, pie, histograms), axis labeling, title generation, layout configuration.
+   - **Role:**
+        - Receives a natural-language chart request, the list of relevant CSV filenames, and their column schemas.
+        - Apply any necessary data transformations—merging only when requested, grouping, aggregations, and special-case logic
+        - Chart Generation: Emits clean, comment-free Python code that builds exactly the requested chart type (bar, line, pie, etc.) with titles & labels.
+   
 
-### 2.2 Design Choices and Rationale
-- **Local LLM Inference (Ollama):** Avoids per-token costs and external data transfers; ensures high throughput and GDPR compliance.
-- **LangChain Orchestration:** Facilitates modular prompts, context windows, and retry logic for robust request handling.
-- **Streamlit Frontend:** Enables rapid deployment of interactive visualization components, with caching to minimize recomputation.
-- **Sandboxed Execution:** Prevents arbitrary code execution beyond data operations, enhancing security.
+### Section 3: Implementation Plan
 
-### 2.3 Development Environment Setup
+## 3.1: Choice of the LLM
+- We Evaluated Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
+- To conclude that llama 3.2 was the best perfomer we tested the three different models on a list of 10 basic queries, to understand which models was performing better.
+
+## 3.2 TOOL ORCHESTRATION
+- Leveraged LangChain tools to integrate and manage our orchestrator, analysis, and visualization agents.
+
+## 3.3 PROMPT ENGINEERING
+- Crafted and iterated custom prompts to guide each agent’s reasoning, code generation, and charting tasks.
+- The prompt templates have a clear structure, starting with context, followed by the instructions and at the end the constraints
+
+## 3.4 STREAMLIT INTERFACE
+- Created and interactive streamlit interface for an optimal user experience.
+
+
+
+
+
+
+### Section 4: Development Environment Setup
 To ensure reproducibility, follow one of the two workflows below:
 
 **Conda Workflow:**
@@ -78,37 +112,50 @@ pip install -r requirements.txt
 
 ---
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Section 3: Experimental Design
 We conducted two core experiments to validate the functionality and performance of our system.
 
 ### Experiment 1: Analysis Accuracy and Efficiency
-- **Purpose:** Quantify the correctness of the Analysis Agent’s code-generated transformations (joins, filters, aggregations).
-- **Dataset:** Five NoiPa CSV files (~200,000 rows total) covering payroll details, deductions, and department codes.
-- **Baseline:** Manual pandas scripts authored by an experienced data analyst.
-- **Procedure:** For each of ten query scenarios (e.g., "Total net salary per department for FY 2023"), compare Analysis Agent output to baseline.
-- **Evaluation Metrics:**
-  - **Accuracy (%)** = (Correct cells / Total cells) × 100
-  - **Mean Execution Time (s)** per scenario (includes code generation + execution).
+- **Purpose:** Quantify the correctness of the Analysis Agent’s code-generated answers.
+- **Dataset:** Four NoiPa CSV files covering access_entries, salaries, commuters data and income brackets ranges.
+- **Baseline:** Manual pandas scripts coded by an experienced data analyst agent.
+- **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
+     - A curated list of 21 questions for the **Analysis Agent**, designed to test dataset joins, filters, and aggregations across multiple CSV files.
+     - A parallel set of 12 questions of visualization challenges for the **Visualization Agent**, focused on bar charts and pie charts.
 
-### Experiment 2: Visualization Quality Assessment
-- **Purpose:** Evaluate the clarity and correctness of automatically generated charts.
-- **Use Cases:** Ten visualization tasks (e.g., salary distribution histograms, monthly trends line charts).
-- **Baseline:** Handcrafted matplotlib scripts.
 - **Evaluation Metrics:**
-  - **Plot Correctness (%)** = (Correct chart type + correct labels and data points) / Total tasks × 100
-  - **User Satisfaction (1–5)** from a survey of 8 domain experts rating readability and interpretability.
-
----
+  - **Accuracy (%)** = (Correct answers / Total answers) × 100
 
 ## Section 4: Results
 
 ### 4.1 Quantitative Findings
-| Agent                | Metric                | Score          |
-|----------------------|-----------------------|----------------|
-| **Analysis Agent**   | Accuracy (%)          | 96.2 ± 1.8     |
-|                      | Mean Exec. Time (s)   | 1.78 ± 0.25    |
-| **Visualization Agent** | Plot Correctness (%)  | 89.5 ± 3.4     |
-|                      | User Satisfaction     | 4.4 ± 0.3      |
+| Agent                   | Metric                | Score          |
+|-------------------------|-----------------------|----------------|
+| **Analysis Agent**      | Accuracy (%)          | 95 %           |
+| **Visualization Agent** | Accuracy  (%)         | 83 %           |
+
+
+
+
+
+
+
+
+
+
 
 > **Note:** All tables and figures below are rendered by `main.ipynb` via automated code execution.
 
