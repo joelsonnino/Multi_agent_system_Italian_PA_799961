@@ -78,40 +78,42 @@ The architecture comprises three specialized agents:
 
 
 
-### Section 4: Development Environment Setup
-To ensure reproducibility, follow one of the two workflows below:
+## Reproducibility
+- To ensure the reproducibility of our multi-agent system, we have made the entire setup process transparent and modular.
+- Follow the steps below to replicate the system in your local environment.
 
-**Conda Workflow:**
+### 1. Clone the Repository
+
 ```bash
-git clone <repo_url>
-cd noipa-mas
-conda create -n noipa-mas python=3.10 -y
-conda activate noipa-mas
-pip install -r requirements.txt
-```
-Export environment:
-```bash
-conda env export --no-builds > environment.yml
+git clone https://github.com/joelsonnino/Multi_agent_system_Italian_PA_799961.git
+cd Multi_agent_system_Italian_PA_799961
 ```
 
-**Virtualenv + Pip Workflow:**
+### 2. Environment Setup
+
+Create a virtual environment and install the required dependencies.
+
 ```bash
-python3.10 -m venv venv
+python -m venv venv
 source venv/bin/activate
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-**Key Dependencies (excerpt from requirements.txt):**
-- `langchain` >=0.0.x
-- `ollama` >=1.0.x
-- `pandas` >=1.5.x
-- `numpy` >=1.24.x
-- `matplotlib` >=3.6.x
-- `streamlit` >=1.20.x
+### 3. Model Installation
+- We use a locally hosted LLM: llama3 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
+- 
+```bash
+ollama pull llama3
+```
 
----
+### 4. Launch the Application
+- Run the Streamlit interface to interact with the multi-agent system:
 
+```bash
+streamlit run app.py
+```
+
+This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
 
 
 ## Section 3: Experimental Design
