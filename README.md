@@ -7,27 +7,28 @@
 ---
 
 ## Section 1: Introduction
-To meet the growing demand for faster & transparent public services while managing increasing volumes of data, we developed a local multi-agent system designed to address user's query about analysis & and visualization on data from the Italian public administration portal (NoiPa). 
+To meet the growing demand for faster & transparent public services while managing increasing volumes of data, we developed a local multi-agent system designed to address user's query about analysis & visualization on data from the Italian public administration portal (NoiPa). 
 Leveraging a tri-agent architecture: **Orchestrator**, **Analysis**, and **Visualization**. The system ensures data privacy by hosting all the system locally via Ollama.
 This project demonstrates how autonomous agents can automate end-to-end data workflows: from interpreting user queries, through data transformation and analysis, to dynamic presentation in a Streamlit interface.
 
 **Key Objectives:**
-1. **Data Analysis & Visualization:** Ability to process, analyze and visualize data of the portal NoiPa CSVs to receive insights.
-2. **Transparency & Compliance:** Keep all data locally with no third-party sharing, ensuring GDPR compliance.
+1. **Data Analysis & Visualization:** Ability to process, analyze and visualize data of the portal NoiPa datasets to receive insights.
+2. **Transparency & Compliance:** Keep all data locally with no third-party sharing, ensuring GDPR compliance and governements requirements
 3. **Interactive Exploration:** Provide a user-friendly interface to explore insights without writing code.
 
 ---
 <br /><br />
+
 ## Section 2: 
 ## 2.1 Data cleaning and processing
 
 - **Normalizes Schema**: Translated all column headers into English, creating a consistent naming convention for LLM parsing.
 - **Validates & Casts Types**: Checked numeric fields, corrected malformed entries, and enforced proper data types.
-- **Generates Features**: Created group features such as: age groups: 18-24, 25-34 e.g or income bracket ranges
+- **Generates Features**: Created group features such as: age_groups or income_bracket_range
 - **Standardizes Categories**: Converted uppercase category labels to lowercase for uniformity and downstream matching.
 
 ## 2.2: Brainstorming
-In the initial phase we had a deep brainstorming session where we thought about different design patterns, communication flows, and integration strategies between agents. 
+In the initial phase, we had a deep brainstorming session where we thought about different design patterns, communication flows, and integration strategies between agents. 
 We carefully analyzed the roles and responsibilities that each agent should take on, and we decided to structure the system as follows:
 
 ## 2.3: System Structure
@@ -51,7 +52,7 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
 3. **Visualization Agent**
    - **Role:**
         - Receives a natural-language chart request, the list of relevant CSV filenames, and their column schemas.
-        - Apply any necessary data transformations, merging only when requested, grouping, aggregations, and special-case logic
+        - Apply any necessary data transformations, merging only when requested, grouping, aggregations, and special-case logic.
         - Chart Generation: Emits clean, comment-free Python code that builds exactly the requested chart type (bar, line, pie, etc.) with titles & labels.
    
 <br /><br />
@@ -59,18 +60,19 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
 ## Section 3: Implementation Plan
 
 ## 3.1: Choice of the LLM
-- We Evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
-- We found that llama 3.2 was the best performer, by testing the three different models on a list of 10 basic queries, to understand which models was performing better.
+- We evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
+- We found that llama 3.2 was the best performer by testing the three different models on a list of 10 basic queries, to understand which model was performing better.
 
 ## 3.2 Tool Orchestration
 - Leveraged LangChain tools to integrate and manage our orchestrator, analysis, and visualization agents.
 
 ## 3.3 Prompt Engineering
 - Crafted and iterated custom prompts to guide each agent’s reasoning, code generation, and charting tasks.
-- The prompt templates have a clear structure, starting with context, followed by the instructions and at the end the constraints
+- The prompt templates have a clear structure, starting with context, followed by the instructions, and at the end, the constraints.
 
 ## 3.4 Streamlit Interface
-- Created and interactive streamlit interface for an optimal user experience.
+- We created an interactive streamlit interface for an optimal and interactive user experience.
+- Inside the interface, the user can download either the PNG files of the images generated by the system or the Python code generated to produce the answer.
 
 <br /><br />
 
@@ -108,7 +110,7 @@ ollama pull llama3.2
 3) Run the cleaning_and_EDA_def to obtain the cleaned datasets under the folder called "datasets"
 4) Launch the Application
 
-## Here below the instructions for launching the application
+## Below are the instructions for launching the application
 
 - Run the Streamlit interface to interact with the multi-agent system:
 
@@ -117,6 +119,14 @@ streamlit run streamlit_app.py
 ```
 
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
+
+<br /><br />
+
+## GUIDELINES FOR OPTIMAL PERFORMANCE
+- **Use exact visualization keywords**: Prefer writing “barchart”  instead of “bar chart.” Always include an explicit action verb like “plot this” when requesting a chart.
+- **Use “grouped by”**: Instead of “give me the insight for each administration,” say “give me the insight grouped by administration.”. The term “grouped” signals to the agent that it must apply a groupby operation.
+- **Use “distribution” rather than “percentage”**: When asking a Piechart phrase, it as “what is the distribution of authentication methods?”, not “what is the percentage of authentication methods?”. “Distribution” cues the agent to compute and visualize proportions correctly.
+- **Explicitly the dataset and variable when known**: If you already know which file and column to query, include them up front. This helps the agent bypass dataset selection ambiguity and generate more precise code.
 
 <br /><br />
 
