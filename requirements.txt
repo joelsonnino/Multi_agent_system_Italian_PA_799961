@@ -1,0 +1,11 @@
+streamlit
+os
+langchain[ollama]
+pandas
+matplotlib
+langchain_
+seaborn
+langchain_experimental
+ollama
+
+
