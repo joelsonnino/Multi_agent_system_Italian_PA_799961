@@ -8,7 +8,7 @@
 
 ## Section 1: Introduction
 To meet the growing demand for faster & transparent public services while managing increasing volumes of data, we developed a local multi-agent system designed to address user's query about analysis & and visualization on data from the Italian public administration portal (NoiPa). 
-Leveraging a tri-agent architecture—**Orchestrator**, **Analysis**, and **Visualization**—the system ensures data privacy by hosting all the system locally via Ollama.
+Leveraging a tri-agent architecture: **Orchestrator**, **Analysis**, and **Visualization**. The system ensures data privacy by hosting all the system locally via Ollama.
 This project demonstrates how autonomous agents can automate end-to-end data workflows: from interpreting user queries, through data transformation and analysis, to dynamic presentation in a Streamlit interface.
 
 **Key Objectives:**
