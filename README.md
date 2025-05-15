@@ -120,6 +120,10 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 <br /><br />
 
+## DISCLAIMER: WHEN YOU TRY TO ASK SOME QUERIES AND YOU DON'T GET THE RIGHT RESULTS, CLEAR THE MEMORY AND TRY TO SEND AGAIN THE REQUEST 
+
+<br /><br />
+
 ## Section 5: Evalutation
 - **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
