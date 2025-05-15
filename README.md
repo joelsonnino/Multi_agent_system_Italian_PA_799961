@@ -67,19 +67,18 @@ The architecture comprises three specialized agents:
 - Created and interactive streamlit interface for an optimal user experience.
 
 
-
 ### Section 4: Reproducibility
 - To ensure the reproducibility of our multi-agent system, we have made the entire setup process transparent and modular.
 - Follow the steps below to replicate the system in your local environment.
 
-## 1. Clone the Repository
+## 4.1: Clone the Repository
 
 ```bash
 git clone https://github.com/joelsonnino/Multi_agent_system_Italian_PA_799961.git
 cd Multi_agent_system_Italian_PA_799961
 ```
 
-## 2. Environment Setup
+## 4.2: Environment Setup
 
 Create a virtual environment and install the required dependencies.
 
@@ -89,14 +88,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 3. Model Installation
+## 4.3: Model Installation
 - We use a locally hosted LLM: llama3.2 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
 
 ```bash
 ollama pull llama3.2
 ```
 
-## 4. Launch the Application
+## 4.4: Launch the Application
 - Run the Streamlit interface to interact with the multi-agent system:
 
 ```bash
