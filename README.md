@@ -101,13 +101,13 @@ pip install -r requirements.txt
 ollama pull llama3.2
 ```
 
-# 4.4 IMPORTANT STEPS TO REPRODUCE THE PROJECT:
+## 4.4 IMPORTANT STEPS TO REPRODUCE THE PROJECT:
 1) Clone the repository
 2) Check to have in the project folder the raw_datasets files
 3) Run the cleaning_and_EDA_def to obtain the cleaned datasets under the folder called "datasets"
 4) Launch the Application
 
-# Here below the instructions for launching the application
+## Here below the instructions for launching the application
 
 - Run the Streamlit interface to interact with the multi-agent system:
 
