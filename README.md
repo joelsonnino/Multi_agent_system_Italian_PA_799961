@@ -31,7 +31,7 @@ In the initial phase we had a deep brainstorming session where we thought about 
 We carefully analyzed the roles and responsibilities that each agent should take on, and we decided to structure the system as follows:
 
 ## 2.3: System Structure
-The architecture comprises three specialized agents:
+The system’s architecture begins with a Streamlit interface that captures the user’s natural-language request.
 
 ![System Architecture](System%20architecture.png)
 
