@@ -6,6 +6,8 @@
 
 ---
 
+![System Architecture](System%20architecture.png)
+
 ## Section 1: Introduction
 To meet the growing demand for faster & transparent public services while managing increasing volumes of data, we developed a local multi-agent system designed to address user's query about analysis & and visualization on data from the Italian public administration portal (NoiPa). 
 Leveraging a tri-agent architecture: **Orchestrator**, **Analysis**, and **Visualization**. The system ensures data privacy by hosting all the system locally via Ollama.
