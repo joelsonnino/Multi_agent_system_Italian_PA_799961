@@ -18,9 +18,9 @@ This project demonstrates how autonomous agents can automate end-to-end data wor
 
 ---
 
-## Section 2: Methods
+### Section 2: Methods
 
-### 2.1 Data cleaning and processing
+## 2.1 Data cleaning and processing
 
 - **Normalizes Schema**: Translated all column headers into English, creating a consistent naming convention for LLM parsing.
 
@@ -31,7 +31,7 @@ This project demonstrates how autonomous agents can automate end-to-end data wor
 - **Standardizes Categories**: Converted uppercase category labels to lowercase for uniformity and downstream matching.
 
 
-### 2.2: Brainstorming
+## 2.2: Brainstorming
 In the initial phase we had a deep brainstorming session where we thought about different design patterns, communication flows, and integration strategies between agents. 
 We carefully analyzed the roles and responsibilities that each agent should take on, and we decided to structure the system as follows:
 
@@ -63,33 +63,30 @@ The architecture comprises three specialized agents:
 - We Evaluated Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
 - To conclude that llama 3.2 was the best perfomer we tested the three different models on a list of 10 basic queries, to understand which models was performing better.
 
-## 3.2 TOOL ORCHESTRATION
+## 3.2 Tool Orchestration
 - Leveraged LangChain tools to integrate and manage our orchestrator, analysis, and visualization agents.
 
-## 3.3 PROMPT ENGINEERING
+## 3.3 Prompt Engineering
 - Crafted and iterated custom prompts to guide each agent’s reasoning, code generation, and charting tasks.
 - The prompt templates have a clear structure, starting with context, followed by the instructions and at the end the constraints
 
-## 3.4 STREAMLIT INTERFACE
+## 3.4 Streamlit Interface
 - Created and interactive streamlit interface for an optimal user experience.
 
 
 
-
-
-
-## Reproducibility
+### Section 4: Reproducibility
 - To ensure the reproducibility of our multi-agent system, we have made the entire setup process transparent and modular.
 - Follow the steps below to replicate the system in your local environment.
 
-### 1. Clone the Repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/joelsonnino/Multi_agent_system_Italian_PA_799961.git
 cd Multi_agent_system_Italian_PA_799961
 ```
 
-### 2. Environment Setup
+## 2. Environment Setup
 
 Create a virtual environment and install the required dependencies.
 
@@ -99,14 +96,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Model Installation
+## 3. Model Installation
 - We use a locally hosted LLM: llama3.2 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
 
 ```bash
 ollama pull llama3.2
 ```
 
-### 4. Launch the Application
+## 4. Launch the Application
 - Run the Streamlit interface to interact with the multi-agent system:
 
 ```bash
@@ -116,11 +113,8 @@ streamlit run streamlit_app.py
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
 
 
-## Section 3: Experimental Design
-We conducted two core experiments to validate the functionality and performance of our system.
-
-### Experiment 1: Analysis Accuracy and Efficiency
-- **Purpose:** Quantify the correctness of the Analysis Agent’s code-generated answers.
+### Section 5: Experimental Design
+- **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
 - **Dataset:** Four NoiPa CSV files covering access_entries, salaries, commuters data and income brackets ranges.
 - **Baseline:** Manual pandas scripts coded by an experienced data analyst agent.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
@@ -130,9 +124,9 @@ We conducted two core experiments to validate the functionality and performance 
 - **Evaluation Metrics:**
   - **Accuracy (%)** = (Correct answers / Total answers) × 100
 
-## Section 4: Results
+### Section 6: Results
 
-### 4.1 Quantitative Findings
+## Quantitative Findings
 | Agent                   | Metric                | Score          |
 |-------------------------|-----------------------|----------------|
 | **Analysis Agent**      | Accuracy (%)          | 95 %           |
@@ -140,25 +134,7 @@ We conducted two core experiments to validate the functionality and performance 
 
 
 
-
-
-
-
-
-
-
-
-> **Note:** All tables and figures below are rendered by `main.ipynb` via automated code execution.
-
-#### Sample Results Table
-![Results Table Placeholder](images/results_table.png)
-
-#### Example Visualization
-![Salary Distribution Histogram](images/sample_chart.png)
-
----
-
-## Section 6: Security & Cost Advantages
+### Section 7: Security & Cost Advantages
 
 - **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
 - **Predictable TCO**: One‐time hardware investment versus variable cloud expenses. There are no surprise bills or usage-based increases.
@@ -166,17 +142,17 @@ We conducted two core experiments to validate the functionality and performance 
 - **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction,ensuring GDPR regulations are met.
 
 
-## Section 7: LIMITATION AND FUTURE STEP
+### Section 8: LIMITATION AND FUTURE STEP
 - **Infrastructure Overhead**: Locally hosted LLM agents requires significant computational resources. Limited scalability on non-specialized hardware.
 - **Performance Trade-Offs**: While local models like LLaMA and Mistral ensure control and privacy, they may underperform compared to cloud-based APIs (e.g., GPT-4) on complex tasks.
 - **Hybrid Model Integration**: Implement smart routing that leverages local models for standard tasks and uses GPT-4 API selectively for complex queries.
 
-## Section 8: Conclusions
+### Section 9: Conclusions
 
 
 
 
-## Repository Structure
+### Repository Structure
 ```
 ├── README.md
 ├── requirements.txt
