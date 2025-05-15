@@ -52,7 +52,6 @@ The architecture comprises three specialized agents:
    
 
 ### Section 3: Implementation Plan
-
 ## 3.1: Choice of the LLM
 - We Evaluated Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
 - To conclude that llama 3.2 was the best perfomer we tested the three different models on a list of 10 basic queries, to understand which models was performing better.
