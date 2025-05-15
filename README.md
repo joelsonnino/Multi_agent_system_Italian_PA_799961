@@ -145,16 +145,5 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 
 
-### Repository Structure
-```
-├── README.md
-├── requirements.txt
-├── environment.yml      # Optional export of conda environment
-├── main.ipynb          # Central notebook with alternating text & code cells
-└── images/             # Folder containing all figures referenced in README
-    ├── architecture_flowchart.png
-    ├── results_table.png
-    └── sample_chart.png
-```
 
 *Thank you for reviewing our detailed report on the NoiPa Multi-Agent System!*
