@@ -44,21 +44,21 @@ This request is passed to the Orchestrator Agent, which selects the relevant dat
 
 2. **Analysis Agent**
    - **Role:**
-        - Receive a natural-language query along with a list of relevant CSV filenames and their schemas.
-        - Apply any necessary data transformations—merging only when requested, grouping, aggregations, and special-case logic
+        - Receive a natural-language query along with a list of relevant datasets and their schemas.
+        - Apply any necessary data transformations, merging only when requested, grouping, aggregations, and special-case logic.
         - Generate clean, executable Python code with no comments or narrative, ensuring syntax correctness and using only the approved libraries and column names.
 
 3. **Visualization Agent**
    - **Role:**
         - Receives a natural-language chart request, the list of relevant CSV filenames, and their column schemas.
-        - Apply any necessary data transformations—merging only when requested, grouping, aggregations, and special-case logic
+        - Apply any necessary data transformations, merging only when requested, grouping, aggregations, and special-case logic
         - Chart Generation: Emits clean, comment-free Python code that builds exactly the requested chart type (bar, line, pie, etc.) with titles & labels.
    
 
 ### Section 3: Implementation Plan
 ## 3.1: Choice of the LLM
-- We Evaluated Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
-- To conclude that llama 3.2 was the best perfomer we tested the three different models on a list of 10 basic queries, to understand which models was performing better.
+- We Evaluated 3 different LLMs: Mistral, QWEN, and LLaMA, ultimately selecting llama3.2.
+- We found that llama 3.2 was the best performer, by testing the three different models on a list of 10 basic queries, to understand which models was performing better.
 
 ## 3.2 Tool Orchestration
 - Leveraged LangChain tools to integrate and manage our orchestrator, analysis, and visualization agents.
@@ -109,10 +109,8 @@ streamlit run streamlit_app.py
 This will start a local server at `http://localhost:8501`, where you can interact with the system via a user-friendly interface.
 
 
-### Section 5: Experimental Design
+### Section 5: Evalutation
 - **Purpose:** Quantify the correctness of the Analysis and Visualization Agent’s code-generated answers.
-- **Dataset:** Four NoiPa CSV files covering access_entries, salaries, commuters data and income brackets ranges.
-- **Baseline:** Manual pandas scripts coded by an experienced data analyst agent.
 - **Procedure:** We have assembled an Excel workbook that includes 2 sheets:
      - A curated list of 21 questions for the **Analysis Agent**, designed to test dataset joins, filters, and aggregations across multiple CSV files.
      - A parallel set of 12 questions of visualization challenges for the **Visualization Agent**, focused on bar charts and pie charts.
@@ -133,8 +131,8 @@ This will start a local server at `http://localhost:8501`, where you can interac
 
 - **Zero API Fees**: Host LLMs locally via Ollama with no per-token or per-call charges.
 - **Predictable TCO**: One‐time hardware investment versus variable cloud expenses. There are no surprise bills or usage-based increases.
-- **Reduced Attack Surface**: All informations remain within your secure network, no third-party sharing. Eliminates risk of data-leaks or non-compliant data transfers.
-- **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction,ensuring GDPR regulations are met.
+- **Reduced Attack Surface**: All informations remain within the secure network, no third-party sharing. Eliminating the risk of data-leaks or non-compliant data transfers.
+- **Compliance & Auditability**: Full control over data lifecycle, encryption, and access policies. Comprehensive audit logs of every query, transformation, and user interaction, ensuring GDPR regulations are met.
 
 
 ### Section 8: LIMITATION AND FUTURE STEP
