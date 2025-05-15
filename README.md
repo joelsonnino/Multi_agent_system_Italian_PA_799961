@@ -103,7 +103,7 @@ pip install -r requirements.txt
 - We use a locally hosted LLM: llama3 via [Ollama](https://ollama.com/). Ensure Ollama is installed and the appropriate model is pulled:
 - 
 ```bash
-ollama pull llama3
+ollama pull llama3.2
 ```
 
 ### 4. Launch the Application
